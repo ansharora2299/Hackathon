@@ -1,0 +1,62 @@
+<data>
+	<title>Weight-for-age, male, infant</title>
+	<!-- Lower horizontal bound of graph display -->
+	<xMin></xMin>
+	<!-- Upper horizontal bound of graph display -->
+	<xMax></xMax>
+	<!-- Lower vertical bound of graph display -->
+	<yMin></yMin>
+	<!-- Upper vertical bound of graph display -->
+	<yMax></yMax>
+	<!-- Nudge the percentile label to the right this many graph points -->
+	<percentileXNudge></percentileXNudge>
+	<!-- Nudge the percentile label up this many graph points -->
+	<percentileYNudge></percentileYNudge>
+	<!-- Major Y-axis graph ticks -->
+	<ticksMajor></ticksMajor>
+	<!-- Minor Y-axis graph ticks -->
+	<ticksMinor></ticksMinor>
+	<!-- Lower bound of horizontal source data -->
+	<sourceXStart></sourceXStart>
+	<!-- Upper bound of horizontal source data -->
+	<sourceXEnd></sourceXEnd>
+	<!-- Percentile vertical source data -->
+	<percentile>
+		<!-- Percentile label -->
+		<label>3</label>
+		<!-- Add as many values as necessary, equal to X-axis subdivisions -->
+		<value>###</value>
+	</percentile>
+	<percentile>
+		<label>5</label>
+		<value>###</value>
+	</percentile>
+	<percentile>
+		<label>10</label>
+		<value>###</value>
+	</percentile>
+	<percentile>
+		<label>25</label>
+		<value>###</value>
+	</percentile>
+	<percentile>
+		<label>50</label>
+		<value>###</value>
+	</percentile>
+	<percentile>
+		<label>75</label>
+		<value>###</value>
+	</percentile>
+	<percentile>
+		<label>90</label>
+		<value>###</value>
+	</percentile>
+	<percentile>
+		<label>95</label>
+		<value>###</value>
+	</percentile>
+	<percentile>
+		<label>97</label>
+		<value>###</value>
+	</percentile>
+</data>
