@@ -28,8 +28,8 @@
 </fieldset>
 
 <p>
-<label>DOB
-<input type="datetime-local" name="dob" value="date" required>
+<label>Year of Birth
+<input type="int" name="dob" value="" required>
 </label>
 </p>
 <p>

@@ -16,10 +16,11 @@ $sql="insert into details (customer_name,phone_number,email_address,gender,dob,p
 $i=mysqli_query($connection,$sql);
 if($i>0)
 {
+$sql1=mysqli_query($connection,"select userid from details where phone_number='$phone_number' AND email_address='$email_address'");
+$row=mysqli_fetch_assoc($sql1);
+$row1=$row['userid'];
+echo $row1;
+//echo "<script type='text/javascript'>alert('$row1');</script>";
 header("location:index.php");
 }
-   // check die part in this 
-   //$id= mysqli_insert_id($connection);
-   //echo $id;
-   //redirect request to another page
 ?>

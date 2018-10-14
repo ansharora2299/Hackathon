@@ -1,5 +1,22 @@
 <?php
 include('session.php');
+$connection = mysqli_connect("localhost", "root", "");
+$db = mysqli_select_db($connection,"info");
+if (!$connection)
+{
+    die("not connected");
+}
+$glucose=filter_input(INPUT_POST,"glucose");
+$bp=filter_input(INPUT_POST,"bp");
+$bmi=filter_input(INPUT_POST,"bmi");
+$date=filter_input(INPUT_POST,"date");
+$username=$_SESSION['login_user'];
+$sql="insert into symptoms(glucose,bp,bmi,date,userid) values($glucose,$bp,$bmi,$date,$username)";
+$i=mysqli_query($connection,$sql);
+if($i>0)
+{
+    header("location:update.php");
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -82,14 +99,14 @@ include('session.php');
                         <p>Maps</p>
                     </a>
                 </li>
-        -->
+        
                 <li>
                     <a href="notifications.php">
                         <i class="pe-7s-bell"></i>
                         <p>Notifications</p>
                     </a>
                 </li>
-            <!--    <li class="active-pro">
+               <li class="active-pro">
                     <a href="upgrade.html">
                         <i class="pe-7s-rocket"></i>
                         <p>Upgrade to PRO</p>
@@ -133,7 +150,7 @@ include('session.php');
 							</br>
 							<div class="header">
                             
-                                <form>
+                                                            <form method="post">
                                     
                                         <div class="col-md-12">
                                             <div class="form-group">
@@ -149,18 +166,13 @@ include('session.php');
 										    <h4 class="title"> ATTRIBUTES </h4>
                             </div>
                             <div class="content">
-                                      <!--  <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>Attributes</label>
-                                                
-                                            </div
-                                        </div><-->
+                                      
                                         
 										<div class="row">
 										<div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Glucose Level</label>
-                                                <input type="number" class="form-control" placeholder="-">
+                                                <input type="number" class="form-control" name="glucose" placeholder="-">
                                             </div>
                                         </div>
                                     </div>
@@ -169,67 +181,29 @@ include('session.php');
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Blood Pressure</label>
-                                                <input type="number"  class="form-control" placeholder="-" >
+                                                <input type="number" name="bp" class="form-control" placeholder="-" >
                                             </div>
                                         </div>
-									
+									</div>
+										
+                                    <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Skin Thickness</label>
-                                                <input type="number" class="form-control" placeholder="-">
+                                                <label>Body Mass Index</label>
+                                                <input type="text" name="bmi" class="form-control" placeholder="-" >
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Insulin</label>
-                                                <input type="number" class="form-control" placeholder="-" >
-                                            </div>
-                                        </div>
+                                    
                                     </div>
-
-                                    <div class="row">
-                                        <div class="col-md-4">
+                                <div class="row">
+                                          <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>BMI</label>
-                                                <input  class="form-control" placeholder="35.3" >
+                                                <label>Date</label>
+                                                <input name="date" class="form-control" placeholder="01/01/20XX">
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>Diabetes Pedigree Function</label>
-                                                <input  class="form-control" placeholder="-" >
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>Age</label>
-                                                <input type="number" class="form-control" placeholder="-">
-                                            </div>
-                                        </div>
-                                    </div>
-                                          <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Date[DD/MM/YY]</label>
-                                                <input  class="form-control" placeholder="01/01/20XX">
-                                            </div>
-                                        </div>
-										<div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>TIME[HR/MIN]</label>
-                                                <input  class="form-control" placeholder="00:00">
-                                            </div>
-                                        </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Any Other Information</label>
-                                                <textarea rows="5" class="form-control" placeholder="Here can be your description" value="Mike"></textarea>
-                                            </div>
-                                        </div>
-                                    </div>
+                                </div>
 
                                     <button type="submit" class="btn btn-info btn-fill pull-right">Update Results</button>
                                     <div class="clearfix"></div>
@@ -237,36 +211,6 @@ include('session.php');
                             </div>
                         </div>
                     </div>
-                   <!-- <div class="col-md-4">
-                        <div class="card card-user">
-                            <div class="image">
-                                <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..."/>
-                            </div>
-                            <div class="content">
-                                <div class="author">
-                                     <a href="#">
-                                    <!--<img class="avatar border-gray" src="assets/img/faces/face-3.jpg" alt="..."/>
-
-                                      <h4 class="title">Mike Andrew<br />
-                                         <small>michael24</small>
-                                      </h4>
-                                    </a>
-                                </div>
-                                <p class="description text-center"> "Lamborghini Mercy <br>
-                                                    Your chick she so thirsty <br>
-                                                    I'm in that two seat Lambo"
-                                </p>
-                            </div>
-                            <hr>
-                            <div class="text-center">
-                                <button href="#" class="btn btn-simple"><i class="fa fa-facebook-square"></i></button>
-                                <button href="#" class="btn btn-simple"><i class="fa fa-twitter"></i></button>
-                                <button href="#" class="btn btn-simple"><i class="fa fa-google-plus-square"></i></button>
-
-                            </div>
-                        </div>
-                    </div><-->
-
                 </div>
             </div>
         </div>

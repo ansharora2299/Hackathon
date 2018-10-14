@@ -1,5 +1,6 @@
 <?php
 include('session.php');
+$username=$_SESSION['login_user'];
 ?>
 <!doctype html>
 <html lang="en">
@@ -82,14 +83,14 @@ include('session.php');
                         <p>Maps</p>
                     </a>
                 </li>
-        -->
+        
                 <li>
                     <a href="notifications.php">
                         <i class="pe-7s-bell"></i>
                         <p>Notifications</p>
                     </a>
                 </li>
-            <!--    <li class="active-pro">
+               <li class="active-pro">
                     <a href="upgrade.html">
                         <i class="pe-7s-rocket"></i>
                         <p>Upgrade to PRO</p>
@@ -103,7 +104,7 @@ include('session.php');
         <nav class="navbar navbar-default navbar-fixed">
             <div class="container-fluid">
                 <div class="navbar-header"> 
-                    <a class="navbar-brand" href="#">Patient Name</a>
+                    <a class="navbar-brand" href="#">Patient Id <?php echo $username;?></a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-left">
@@ -227,10 +228,8 @@ include('session.php');
                                       </h4>
                                     </a>
                                 </div>
-                                <p class="description text-center"> "Lamborghini Mercy <br>
-                                                    Your chick she so thirsty <br>
-                                                    I'm in that two seat Lambo"
-                                </p>
+                                <p class="description text-center"> Diabetes Patient <br>
+                                                                                  </p>
                             </div>
                             <hr>
                             <div class="text-center">
